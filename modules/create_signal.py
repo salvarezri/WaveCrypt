@@ -25,7 +25,7 @@ step_freq = 20
 initial_freq_hz = 20
 
 # tiempo de reproduccion por caracter (en segundos)
-play_t = 0.2
+play_t = 0.05
 
 # frecuencia de muestreo (en Hz), debe ser entero
 fs = 48000

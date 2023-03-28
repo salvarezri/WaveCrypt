@@ -12,7 +12,6 @@
   </property>
   <property name="font">
    <font>
-    <family>Sans Serif</family>
     <pointsize>9</pointsize>
     <bold>false</bold>
     <stylestrategy>PreferDefault</stylestrategy>
@@ -28,7 +27,6 @@
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <family>Sans Serif</family>
         <pointsize>29</pointsize>
         <bold>true</bold>
         <stylestrategy>PreferDefault</stylestrategy>
@@ -52,7 +50,7 @@
     <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="SendTab">
        <attribute name="title">
@@ -60,17 +58,16 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="9">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="button_select_file">
           <property name="text">
            <string>Select file</string>
           </property>
          </widget>
         </item>
         <item row="2" column="1" colspan="6">
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="field_send_password">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>12</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -86,10 +83,9 @@
          </widget>
         </item>
         <item row="3" column="0" colspan="2">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="button_send_encrypt">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -112,7 +108,6 @@
          <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -135,10 +130,9 @@
          </widget>
         </item>
         <item row="3" column="9">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="button_send">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>true</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -177,7 +171,7 @@
          </spacer>
         </item>
         <item row="1" column="0" colspan="10">
-         <widget class="QPlainTextEdit" name="plainTextEdit">
+         <widget class="QPlainTextEdit" name="field_send_text">
           <property name="plainText">
            <string/>
           </property>
@@ -222,10 +216,9 @@
          </spacer>
         </item>
         <item row="3" column="2">
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="button_send_decrypt">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -245,7 +238,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="1" column="8">
-         <widget class="QPushButton" name="pushButton_9">
+         <widget class="QPushButton" name="button_recieve_copy">
           <property name="text">
            <string>Copy</string>
           </property>
@@ -259,14 +252,14 @@
          </widget>
         </item>
         <item row="1" column="9">
-         <widget class="QPushButton" name="pushButton_7">
+         <widget class="QPushButton" name="button_recieve_save_file">
           <property name="text">
            <string>save</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0" colspan="10">
-         <widget class="QPlainTextEdit" name="plainTextEdit_2">
+         <widget class="QPlainTextEdit" name="field_recieve_text">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -276,10 +269,9 @@
          </widget>
         </item>
         <item row="4" column="0">
-         <widget class="QPushButton" name="pushButton_8">
+         <widget class="QPushButton" name="button_recieve_encrypt">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -305,10 +297,9 @@
          </spacer>
         </item>
         <item row="4" column="9">
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="button_recieve">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>true</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -356,7 +347,6 @@
          <widget class="QLabel" name="label_9">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -382,10 +372,9 @@
          </spacer>
         </item>
         <item row="4" column="1">
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="button_recieve_decrypt">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>15</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>
@@ -398,10 +387,9 @@
          </widget>
         </item>
         <item row="3" column="1" colspan="5">
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="field_recieve_password">
           <property name="font">
            <font>
-            <family>Sans Serif</family>
             <pointsize>12</pointsize>
             <bold>false</bold>
             <stylestrategy>PreferDefault</stylestrategy>

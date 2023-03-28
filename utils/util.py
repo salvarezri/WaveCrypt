@@ -2,7 +2,6 @@ from random import randrange
 
 from modules.play_signal import play_sound
 
-
 # funcion para generar cadenas aleatorias
 def create_rand_ascii(size):
     new_string = ''
@@ -11,10 +10,10 @@ def create_rand_ascii(size):
     return new_string
 
 
-def play():
+def play(text=""):
     # texto recibido a reproducir
     string_size = 20
-    example_text_encrypted = '---- LIMITE TRAMA ----' + create_rand_ascii(string_size) + '---- LIMITE TRAMA ----'
+    example_text_encrypted = '---- LIMITE TRAMA ----' + text + '---- LIMITE TRAMA ----'
 
     # (escribir entre LIMITE TRAMA)
     # example_text_encrypted = '---- LIMITE TRAMA ----' \

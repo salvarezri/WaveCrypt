@@ -25,7 +25,8 @@ class Gui(Ui_MainWindow):
         self.receive_function()
         self.crypt_functions()
         self.copy_function()
-        self.load_file_function()
+        self.load_and_save_file_function()
+        self.load_and_open_file_function()
 
     def copy_function(self):
         self.button_recieve_copy.clicked.connect(self.copy_text)
@@ -38,11 +39,20 @@ class Gui(Ui_MainWindow):
         # This method pauses the gui, it should be async
         self.button_send.clicked.connect(self.send)
 
-    def load_file_function(self):
-        self.button_select_file.clicked.connect(self.load_file)
+    def load_and_save_file_function(self):
+        self.button_recieve_save_file.clicked.connect(self.load_and_save_file)
 
-    def load_file(self):
-        path = self.select_text_file()
+    def load_and_open_file_function(self):
+        self.button_select_file.clicked.connect(self.load_and_open_file)
+
+    def load_and_save_file(self):
+        path = self.select_text_file_save()
+        self.save_file(path)
+        print("save", path)
+
+    def load_and_open_file(self):
+        print("open")
+        path = self.select_text_file_open()
         self.open_file(path)
 
     def copy_text(self):
@@ -86,8 +96,18 @@ class Gui(Ui_MainWindow):
         crypt_text = encrypt(text, password) if method == "encrypt" else decrypt(text, password)
         text_field.setPlainText(crypt_text)
 
-    def select_text_file(self):
+    def select_text_file_open(self):
         response = QFileDialog.getOpenFileName(
+            parent=self.centralwidget,
+            caption="Select a file",
+            directory=os.getcwd(),
+            filter=self.filter,
+            initialFilter=self.filter
+        )
+        return response[0]
+
+    def select_text_file_save(self):
+        response = QFileDialog.getSaveFileName(
             parent=self.centralwidget,
             caption="Select a file",
             directory=os.getcwd(),
@@ -98,7 +118,11 @@ class Gui(Ui_MainWindow):
 
     def open_file(self, file_path):
         self.field_send_text.setPlainText("")
-        with open(file_path) as file:
+        with open(file_path, 'r') as file:
             for line in file.readlines():
                 self.field_send_text.insertPlainText(line)
 
+    def save_file(self, file_path):
+        text = self.field_recieve_text.toPlainText()
+        with open(file_path, 'w') as file:
+            file.write(text)

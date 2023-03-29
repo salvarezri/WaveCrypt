@@ -1,8 +1,10 @@
+import os
 
 from gui.wave_crypt_window import Ui_MainWindow
 from utils.util import play
 from modules.cryptography_module import encrypt, decrypt
 from pyperclip import copy
+from PyQt6.QtWidgets import QFileDialog
 
 
 class Gui(Ui_MainWindow):
@@ -10,6 +12,7 @@ class Gui(Ui_MainWindow):
     def __init__(self):
         # load parent constructor
         Ui_MainWindow.__init__(self)
+        self.filter = 'Plain Text File (*.txt)'
 
     def start(self, main_window):
         # start loading the page components
@@ -22,6 +25,7 @@ class Gui(Ui_MainWindow):
         self.receive_function()
         self.crypt_functions()
         self.copy_function()
+        self.load_file_function()
 
     def copy_function(self):
         self.button_recieve_copy.clicked.connect(self.copy_text)
@@ -33,6 +37,13 @@ class Gui(Ui_MainWindow):
         # button send functionality
         # This method pauses the gui, it should be async
         self.button_send.clicked.connect(self.send)
+
+    def load_file_function(self):
+        self.button_select_file.clicked.connect(self.load_file)
+
+    def load_file(self):
+        path = self.select_text_file()
+        self.open_file(path)
 
     def copy_text(self):
         copy(self.field_recieve_text.toPlainText())
@@ -74,4 +85,20 @@ class Gui(Ui_MainWindow):
         password = password_field.text()
         crypt_text = encrypt(text, password) if method == "encrypt" else decrypt(text, password)
         text_field.setPlainText(crypt_text)
+
+    def select_text_file(self):
+        response = QFileDialog.getOpenFileName(
+            parent=self.centralwidget,
+            caption="Select a file",
+            directory=os.getcwd(),
+            filter=self.filter,
+            initialFilter=self.filter
+        )
+        return response[0]
+
+    def open_file(self, file_path):
+        self.field_send_text.setPlainText("")
+        with open(file_path) as file:
+            for line in file.readlines():
+                self.field_send_text.insertPlainText(line)
 

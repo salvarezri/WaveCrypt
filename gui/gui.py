@@ -18,12 +18,21 @@ class Gui(Ui_MainWindow):
     def add_functions(self):
         # add diferent functionalities
         self.send_function()
+        self.receive_function()
         self.crypt_functions()
+
+    def receive_function(self):
+        self.button_recieve.clicked.connect(self.receive)
 
     def send_function(self):
         # button send functionality
         # This method pauses the gui, it should be async
         self.button_send.clicked.connect(self.send)
+
+    def receive(self):
+        self.field_recieve_text.setPlainText("")
+        text = self.field_send_text.toPlainText()
+        self.field_recieve_text.insertPlainText(text)
 
     def send(self):
         # obtains text to send and reproduce it

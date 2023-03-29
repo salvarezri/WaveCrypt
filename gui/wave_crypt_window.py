@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
         self.button_recieve_save_file.setObjectName("button_recieve_save_file")
         self.gridLayout_4.addWidget(self.button_recieve_save_file, 1, 9, 1, 1)
         self.field_recieve_text = QtWidgets.QPlainTextEdit(self.ReciveTab)
-        self.field_recieve_text.setReadOnly(False)
+        self.field_recieve_text.setReadOnly(True)
         self.field_recieve_text.setPlainText("")
         self.field_recieve_text.setObjectName("field_recieve_text")
         self.gridLayout_4.addWidget(self.field_recieve_text, 2, 0, 1, 10)

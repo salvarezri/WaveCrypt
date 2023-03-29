@@ -2,6 +2,7 @@
 from gui.wave_crypt_window import Ui_MainWindow
 from utils.util import play
 from modules.cryptography_module import encrypt, decrypt
+from pyperclip import copy
 
 
 class Gui(Ui_MainWindow):
@@ -16,10 +17,14 @@ class Gui(Ui_MainWindow):
         self.add_functions()
 
     def add_functions(self):
-        # add diferent functionalities
+        # add different functionalities
         self.send_function()
         self.receive_function()
         self.crypt_functions()
+        self.copy_function()
+
+    def copy_function(self):
+        self.button_recieve_copy.clicked.connect(self.copy_text)
 
     def receive_function(self):
         self.button_recieve.clicked.connect(self.receive)
@@ -28,6 +33,10 @@ class Gui(Ui_MainWindow):
         # button send functionality
         # This method pauses the gui, it should be async
         self.button_send.clicked.connect(self.send)
+
+    def copy_text(self):
+        copy(self.field_recieve_text.toPlainText())
+        # add message to confirm
 
     def receive(self):
         self.field_recieve_text.setPlainText("")

@@ -117,12 +117,16 @@ class Gui(Ui_MainWindow):
         return response[0]
 
     def open_file(self, file_path):
+        if file_path == '':
+            return
         self.field_send_text.setPlainText("")
         with open(file_path, 'r') as file:
             for line in file.readlines():
                 self.field_send_text.insertPlainText(line)
 
     def save_file(self, file_path):
+        if file_path == '':
+            return
         text = self.field_recieve_text.toPlainText()
         with open(file_path, 'w') as file:
             file.write(text)

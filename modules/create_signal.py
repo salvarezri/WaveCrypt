@@ -22,7 +22,7 @@ max_char_ascii = 126
 # tenga una frecuencia como imagen o absisa.
 # rango de freq. usadas: [300, step_freq*(max_char_ascii-min_char_ascii)]
 step_freq = 20
-initial_freq_hz = 20
+initial_freq_hz = 280
 
 # tiempo de reproduccion por caracter (en segundos)
 play_t = 0.05

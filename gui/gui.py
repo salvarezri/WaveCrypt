@@ -1,13 +1,15 @@
 import os
-
+from datetime import datetime
 from gui.wave_crypt_window import Ui_MainWindow
 from utils.util import play
 from modules.cryptography_module import encrypt, decrypt
+from modules.record import record
 from pyperclip import copy
 from PyQt6.QtWidgets import QFileDialog
 
 
 class Gui(Ui_MainWindow):
+
 
     def __init__(self):
         # load parent constructor
@@ -60,6 +62,13 @@ class Gui(Ui_MainWindow):
         # add message to confirm
 
     def receive(self):
+        # record
+        duration = 4
+        filename = datetime.now()
+        file = record(filename, duration)
+        # analyze audio file
+        print(file)
+        # update interface
         self.field_recieve_text.setPlainText("")
         text = self.field_send_text.toPlainText()
         self.field_recieve_text.insertPlainText(text)

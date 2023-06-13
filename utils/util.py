@@ -13,12 +13,10 @@ def create_rand_ascii(size):
 def play(text=""):
     # texto recibido a reproducir
     string_size = 20
-    example_text_encrypted = '---- LIMITE TRAMA ----' + text + '---- LIMITE TRAMA ----'
+    example_text_encrypted = '¬¬¬¬ ' + text + ' ¬¬¬¬'
 
     # (escribir entre LIMITE TRAMA)
-    # example_text_encrypted = '---- LIMITE TRAMA ----' \
-                             # 'este es un ejemplo "real?"' \
-                             # '---- LIMITE TRAMA ----'
+    # example_text_encrypted = '¬¬¬¬ LIMITE TRAMA ---- este es un ejemplo ¬¬¬¬'
 
     # esta funcion puede ser activada (antes importada) por la interfaz
     play_sound(example_text_encrypted)

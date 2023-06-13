@@ -8,7 +8,8 @@ def record(filename=str(datetime.now()), duration=5):
     channels = 2
     fs = 44100  # Record at 44100 samples per second
     seconds = duration
-    filename = "./records/"+str(filename) + ".wav"
+    filename = "../records/"+str(filename) + ".wav"
+    filename = filename.replace(':', '-')
 
     p = pyaudio.PyAudio()  # Create an interface to PortAudio
 

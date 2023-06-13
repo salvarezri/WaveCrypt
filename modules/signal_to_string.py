@@ -34,10 +34,10 @@ def refine_interval(freq, start, end, array, fs):
     return start
 
 
-def recover_string_from_signal(signal):
+def recover_string_from_signal(filename = ""):
 
     # esto usa un audio ejemplo, se supone que el param. signal es la señal del audio
-    sound = AudioSegment.from_mp3(file="./96231.mp3") ## tambien puede usarse .from_wav()
+    sound = AudioSegment.from_wav(file=filename) ## tambien puede usarse .from_wav()
     sound = sound.set_channels(1)
     arr1 = sound.get_array_of_samples()
     # se reemplaza en el codigo arr1 por signal, o se puede pasar un audio y se reemplaza sound por signal
@@ -68,22 +68,26 @@ def recover_string_from_signal(signal):
     recovered_string = ""
     limit_reached = 0
     char_index = 0
-    while limit_reached < 3 and char_index < 20:
-        char_freq = return_freq_array(real_start_limit + 52800 + (char_index * 2400),
-                                      real_start_limit + 52800 + ((char_index + 1) * 2400), arr1, sound.frame_rate)
-        ord_char = round((char_freq - initial_freq) / step_freq) + min_char_ascii
+    try :
+        while limit_reached < 3 and char_index < 20:
+            char_freq = return_freq_array(real_start_limit + 52800 + (char_index * 2400),
+                                          real_start_limit + 52800 + ((char_index + 1) * 2400), arr1, sound.frame_rate)
+            ord_char = round((char_freq - initial_freq) / step_freq) + min_char_ascii
 
-        if round(char_freq) == limit_freq:
-            limit_reached += 1
-        else:
-            recovered_string += chr(ord_char)
+            if round(char_freq) == limit_freq:
+                limit_reached += 1
+            else:
+                recovered_string += chr(ord_char)
 
-        #print("Letra: ", chr(ord_char), " / ASCII: ", ord_char)
+            #print("Letra: ", chr(ord_char), " / ASCII: ", ord_char)
 
-        char_index += 1
+            char_index += 1
 
-    return recovered_string
+        return recovered_string
+    except:
+        print()
+        return 0
 
 
 if __name__ == '__main__':# BORRAR
-    print(recover_string_from_signal(20))
+    print(recover_string_from_signal("../records/2023-06-10 18:45:58.005115.wav"))

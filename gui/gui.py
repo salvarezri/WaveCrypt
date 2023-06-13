@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from gui.wave_crypt_window import Ui_MainWindow
+from gui.wave_crypt_window2 import Ui_MainWindow
 from utils.util import play
 from modules.cryptography_module import encrypt, decrypt
 from modules.record import record
@@ -63,7 +63,7 @@ class Gui(Ui_MainWindow):
 
     def receive(self):
         # record
-        duration = 4
+        duration = self.spinBox.value()
         filename = datetime.now()
         file = record(filename, duration)
         # analyze audio file

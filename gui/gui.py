@@ -6,6 +6,7 @@ from modules.cryptography_module import encrypt, decrypt
 from modules.record import record
 from pyperclip import copy
 from PyQt6.QtWidgets import QFileDialog
+from modules.signal_to_string import recover_string_from_signal
 
 
 class Gui(Ui_MainWindow):
@@ -68,9 +69,14 @@ class Gui(Ui_MainWindow):
         file = record(filename, duration)
         # analyze audio file
         print(file)
+        string = recover_string_from_signal(file)
+        text = ""
+        if string == 0:
+            text = "no se encontró ningún texto en la grabación"
+        else:
+            text = string
         # update interface
         self.field_recieve_text.setPlainText("")
-        text = self.field_send_text.toPlainText()
         self.field_recieve_text.insertPlainText(text)
 
     def send(self):
